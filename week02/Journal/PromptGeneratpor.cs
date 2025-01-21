@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
-
-/// <summary>
 /// Generates random prompts for journal entries.
-/// </summary>
 public class PromptGenerator
 {
     private List<string> _prompts = new List<string>
@@ -15,9 +12,7 @@ public class PromptGenerator
         "If I had one thing I could do over today, what would it be?"
     };
 
-    /// <summary>
     /// Returns a random prompt from the list.
-    /// </summary>
     public string GetRandomPrompt()
     {
         Random random = new Random();
