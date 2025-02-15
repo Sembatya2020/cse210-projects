@@ -1,17 +1,26 @@
-using System;
-
 public class EternalGoal : Goal
 {
-    public EternalGoal(string name, string description, int points) : base(name, description, points) { }
+    private int TimesCompleted { get; set; }
+
+    public EternalGoal(string name, string description, int points) 
+        : base(name, description, points)
+    {
+        TimesCompleted = 0;
+    }
 
     public override void Complete()
     {
-        // Eternal goals cannot be completed, so no changes should happen here
-        Console.WriteLine($"Eternal Goal '{Name}' cannot be marked as completed.");
+        TimesCompleted++;
+        Console.WriteLine($"You recorded progress for: {Name}");
+    }
+
+    public override void DisplayGoal()
+    {
+        Console.WriteLine($"[ ] {Name}: {Description} (Points: {Points} each time) - Completed {TimesCompleted} times");
     }
 
     public override int GetPoints()
     {
-        return Points;
+        return Points * TimesCompleted;
     }
 }
